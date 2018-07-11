@@ -19,7 +19,7 @@
     "normalize.css": "^8.0.0",
     "pixi.js": "^4.8.1",
     "promise-file-reader": "^1.0.2",
-    "revolt-fx": "^0.2.0",
+    "revolt-fx": "^1.0.0",
     "save-as": "^0.1.8",
     "vue": "^2.5.2",
     "vue-clipboard2": "^0.2.0",
