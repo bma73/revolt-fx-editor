@@ -1,6 +1,6 @@
 {
   "name": "revolt-fx-editor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Editor for the RevoltFX particle and effect system",
   "author": "Bjoern Acker <bjoern@electronauts.net>",
   "license": "MIT",
