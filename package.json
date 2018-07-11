@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Editor for the RevoltFX particle and effect system",
   "author": "Bjoern Acker <bjoern@electronauts.net>",
+  "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
