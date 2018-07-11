@@ -1,0 +1,16 @@
+/* theme color */
+/*$--color-primary: blue;
+
+html {
+  background-color: black;
+  color: white;
+}
+
+*/
+
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+

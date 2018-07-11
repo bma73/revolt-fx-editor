@@ -1,0 +1,78 @@
+
+html, body {
+  margin: 0 0 0 0;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-size: 0.9rem;
+  //color: dimgray;
+  font-weight: 100;
+  line-height: 1.4rem;
+  width:100%;
+  height:100%;
+  position: fixed;
+
+}
+
+*:focus {
+  outline: none;
+}
+
+
+
+
+.max-width-50p {
+  width:50%;
+}
+
+.element {
+  float:left;
+}
+.half-line {
+  margin-bottom: 0.5rem;
+}
+
+
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4 {
+}
+
+
+
+.w100 {
+  width: 100%;
+}
+
+.wh100 {
+  width: 100%;
+  height: 100%;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
+.font-light {
+  font-weight: 200;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear-both {
+  clear: both;
+}
+
+
