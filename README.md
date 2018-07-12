@@ -4,7 +4,7 @@
 
 Visual editor for the [RevoltFX](https://github.com/bma73/revolt-fx) particle and effect system built with VueJS.
 
-### Check out the [online version](https://github.com/bma73/revolt-fx-editor)
+### Check out the [online version](https://editor.revoltfx.electronauts.net)
 
 ![editor](https://samples.revoltfx.electronauts.net/assets/editor.png)
 
