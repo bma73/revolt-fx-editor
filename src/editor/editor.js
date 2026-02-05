@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-import {Layers} from "./Layers";
+import { Layers } from './layers.js';
 import {
   EVENT_EMITTER_AUTO_ROTATION_CHANGED, EVENT_EMITTER_CHILDS_CHANGED,
   EVENT_EMITTER_CORE_CHANGED,
@@ -13,7 +13,7 @@ import {ClickGizmo, Gizmos} from "./gizmos";
 import * as JSZip from 'jszip';
 import saveAs from 'save-as'
 import {SET_BUNDLE} from "../store";
-import * as md5 from 'js-md5';
+import md5 from 'js-md5';
 import {readAsText, readAsDataURL} from 'promise-file-reader';
 
 export class Editor {

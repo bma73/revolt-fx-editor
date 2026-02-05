@@ -1,21 +1,23 @@
 <template>
   <div style="height: 100%">
     <div layout="row center-left" style="height:100%">
-      <img class="logo" src="/static/rfx-logo.png"/>
+      <img class="logo" src="/rfx-logo.png" alt="logo"/>
       <div style="width:120px">
         <div class="title">RevoltFX</div>
       </div>
       <div>
         <el-dropdown trigger="click" @command="handleMenuItem">
-            <span class="el-dropdown-link" style="cursor: pointer">
-              Bundle<i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="new_bundle">New...</el-dropdown-item>
-            <el-dropdown-item command="load_bundle">Load...</el-dropdown-item>
-            <el-dropdown-item command="save_bundle">Save...</el-dropdown-item>
-            <el-dropdown-item command="show_json" divided>Show JSON...</el-dropdown-item>
-          </el-dropdown-menu>
+          <span class="el-dropdown-link" style="cursor: pointer">
+            Bundle<el-icon class="el-icon--right"><ArrowDown /></el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="new_bundle">New...</el-dropdown-item>
+              <el-dropdown-item command="load_bundle">Load...</el-dropdown-item>
+              <el-dropdown-item command="save_bundle">Save...</el-dropdown-item>
+              <el-dropdown-item command="show_json" divided>Show JSON...</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
         </el-dropdown>
       </div>
 
@@ -42,14 +44,15 @@
 </template>
 
 <script>
-  import NewBundle from "./NewBundle";
-  import SaveBundle from "./SaveBundle";
-  import LoadBundle from "./LoadBundle";
-  import ShowBundleJson from "./ShowBundleJson";
+import { ArrowDown } from '@element-plus/icons-vue'
+import NewBundle from './NewBundle.vue'
+import SaveBundle from './SaveBundle.vue'
+import LoadBundle from './LoadBundle.vue'
+import ShowBundleJson from './ShowBundleJson.vue'
 
-  export default {
-    name: "TopMenu",
-    components: {ShowBundleJson, LoadBundle, SaveBundle, NewBundle},
+export default {
+  name: 'TopMenu',
+  components: { ArrowDown, ShowBundleJson, LoadBundle, SaveBundle, NewBundle },
     data() {
       return {}
     },

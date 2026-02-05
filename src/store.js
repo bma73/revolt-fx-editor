@@ -1,11 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import {FX} from 'revolt-fx';
-import {Editor} from "./editor/Editor";
-import * as _ from 'lodash';
-
-
-Vue.use(Vuex);
+import { createStore } from 'vuex'
+import { FX } from 'revolt-fx'
+import { Editor } from './editor/editor.js'
+import _ from 'lodash'
 
 export const INIT_BUNDLE = 'INIT_BUNDLE';
 export const SET_BUNDLE = 'SET_BUNDLE';
@@ -151,7 +147,7 @@ const sort = list => {
   _.sortBy(list, 'name')
 };
 
-const store = new Vuex.Store({state: state, mutations: mutations});
+const store = createStore({ state, mutations })
 
 const createSequencePreset = name => {
   return {

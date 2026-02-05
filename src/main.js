@@ -1,37 +1,29 @@
-import 'es6-promise/auto';
+import 'es6-promise/auto'
+import './pixi-global.js'
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import 'normalize.css'
+import 'flex-layout-attribute'
+import '@/css/main.scss'
 
-import Vue from 'vue'
+import App from './App.vue'
+import store from './store'
+import { eventBus } from './eventBus'
+import { Editor } from './editor/editor.js'
 
-import * as PIXI from 'pixi.js';
-import {FX} from 'revolt-fx';
+async function init() {
+  const { FX } = await import('revolt-fx')
+  const fx = new FX()
+  Editor.fx = fx
 
-import ElementUI from 'element-ui';
-import locale from 'element-ui/lib/locale/lang/en'
-import 'normalize.css';
-import 'flex-layout-attribute';
-import '@/css/main.scss';
-import '@/css/theme.scss';
+  const app = createApp(App)
+  app.use(store)
+  app.use(ElementPlus)
+  app.config.globalProperties.$eventBus = eventBus
+  app.config.globalProperties.$fx = fx
+  app.provide('vueApp', app)
+  app.mount('#app')
+}
 
-import App from './App'
-
-import store from './store';
-
-import {Editor} from "./editor/Editor";
-
-import VueClipboard from 'vue-clipboard2'
-
-Vue.use(VueClipboard);
-
-Vue.config.productionTip = false;
-
-Vue.use(ElementUI, { locale });
-
-Vue.prototype.$eventBus = new Vue();
-Vue.prototype.$fx = Editor.fx = new FX();
-
-new Vue({
-  el: '#app',
-  store,
-  components: { App },
-  template: '<App/>'
-});
+init()

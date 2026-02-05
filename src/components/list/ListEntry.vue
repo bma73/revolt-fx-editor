@@ -5,14 +5,17 @@
       <img :src="icon"/>
     </div>
     <span :class="{sub:isSubEntry}">{{this.name}}</span>
-    <i class="el-icon-delete" self="right" @click.stop="remove"></i>
+    <el-icon class="delete-icon" @click.stop="remove"><Delete /></el-icon>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "ListEntry",
-    props: ['data', 'selectedElement', 'nameCallback', 'prefixCallback', 'iconCallback', 'subEntryFilter'],
+import { Delete } from '@element-plus/icons-vue'
+
+export default {
+  name: 'ListEntry',
+  components: { Delete },
+  props: ['data', 'selectedElement', 'nameCallback', 'prefixCallback', 'iconCallback', 'subEntryFilter'],
     data() {
       return {
         listEntry: true,
@@ -63,17 +66,14 @@
 </script>
 
 <style lang="scss" scoped>
-
-  @import "~element-ui/packages/theme-chalk/src/common/var";
-
   .thumb {
     position: relative;
     padding: 2px;
     margin: 0;
     cursor: pointer;
-    background-color: mix($--color-primary, white, 30);
+    background-color: #409eff;
     margin: 1px;
-    border-radius: $--border-radius-base;
+    border-radius: 4px;
     overflow: hidden;
     width: 25px;
     height: 25px;
@@ -88,12 +88,16 @@
   .prefix {
     width: 40px;
     margin-right: 5px;
-    background-color: $--color-info;
+    background-color: #909399;
     color: white;
     font-size: 0.75rem;
-    border-radius: $--border-radius-base;
+    border-radius: 4px;
     text-align: center;
+  }
 
+  .delete-icon {
+    cursor: pointer;
+    margin-left: auto;
   }
 
   .entry {
@@ -111,8 +115,8 @@
   }
 
   .selected {
-    color: $--color-primary;
-    background-color: mix(white, $--color-primary, 92%);
+    color: #409eff;
+    background-color: #ecf5ff;
     font-weight: 400;
   }
 

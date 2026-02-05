@@ -26,7 +26,7 @@
 
 <script>
   import * as PIXI from 'pixi.js';
-  import ImageSelectThumb from "./ImageSelectThumb";
+  import ImageSelectThumb from "./ImageSelectThumb.vue";
 
 
   export default {
@@ -74,13 +74,12 @@
 
 <style lang="scss" scoped>
 
-  @import "~element-ui/packages/theme-chalk/src/common/var";
 
   $thumbSize: 80px;
 
   .current-thumb {
-    border-radius: $--border-radius-base;
-    border: $--border-base;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
     padding: 5px;
     width: $thumbSize;
     height: $thumbSize;
@@ -95,9 +94,9 @@
     overflow-x: hidden;
     overflow-y: auto;
     margin-top: 5px;
-    border-radius: $--border-radius-base;
-    box-shadow: $--box-shadow-dark;
-    border: $--border-base;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.3);
+    border: 1px solid #dcdfe6;
     padding: 2px;
     z-index: 5;
   }

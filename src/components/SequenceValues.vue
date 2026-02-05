@@ -93,7 +93,7 @@
 
     </value-group>
 
-    <el-dialog title="Add Component" :visible.sync="modalVisible" width="400px">
+    <el-dialog v-model="modalVisible" title="Add Component" width="400px">
       <value-group>
         <p v-if="emitters.length > 0">
           <el-button type="primary" class="button" plain @click="onAddEffect($event, 2)">Particle Emitter</el-button>
@@ -108,28 +108,28 @@
           <el-button type="primary" class="button" plain @click="onAddEffect($event, 3)">Trigger</el-button>
         </p>
       </value-group>
-      <span slot="footer" class="dialog-footer">
-    <el-button type="primary" @click="modalVisible=false">Cancel</el-button>
-    </span>
+      <template #footer>
+        <el-button type="primary" @click="modalVisible=false">Cancel</el-button>
+      </template>
     </el-dialog>
 
   </div>
 </template>
 
 <script>
-  import ValueGroup from "./values/ValueGroup";
-  import NumberValue from "./values/NumberValue";
-  import ChildList from "./ChildList";
-  import ValueElement from "./values/ValueElement";
-  import List from "./list/List";
-  import ImageSelect from "./imageselect/ImageSelect";
-  import BetterImageSelect from "./imageselect/BetterImageSelect";
-  import MinMaxNumberValue from "./values/MinMaxNumberValue";
-  import SelectValue from "./values/SelectValue";
-  import ColorValue from "./values/ColorValue";
-  import Help from "./Help";
+  import ValueGroup from "./values/ValueGroup.vue";
+  import NumberValue from "./values/NumberValue.vue";
+  import ChildList from "./ChildList.vue";
+  import ValueElement from "./values/ValueElement.vue";
+  import List from "./list/List.vue";
+  import ImageSelect from "./imageselect/ImageSelect.vue";
+  import BetterImageSelect from "./imageselect/BetterImageSelect.vue";
+  import MinMaxNumberValue from "./values/MinMaxNumberValue.vue";
+  import SelectValue from "./values/SelectValue.vue";
+  import ColorValue from "./values/ColorValue.vue";
+  import Help from "./Help.vue";
   import * as _ from 'lodash';
-  import MinMaxNumberAngleDegreesValue from "./values/MinMaxNumberAngleDegreesValue";
+  import MinMaxNumberAngleDegreesValue from "./values/MinMaxNumberAngleDegreesValue.vue";
 
   export default {
     name: "SequenceValues",
@@ -270,10 +270,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~element-ui/packages/theme-chalk/src/common/var";
 
   .head {
-    color: $--color-primary;
+    color: #409eff;
     font-size: 1.3rem;
     font-weight: 400;
   }

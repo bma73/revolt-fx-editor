@@ -3,12 +3,12 @@
     <b>{{label}}<br></b>
     <el-row type="flex" style="margin-top: -4px">
       <el-col>
-        <div class="label">{{minLabel || 'Min'}}</div>
-        <el-input-number class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="mini" v-model="minValue" :step="step" @change="$emit('update:min', minValue)"/>
+        <div class="label">{{ minLabel || 'Min' }}</div>
+        <el-input-number class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="small" v-model="minValue" :step="step" @change="$emit('update:min', minValue)"/>
       </el-col>
       <el-col>
-        <div class="label">{{maxLabel || 'Max'}}</div>
-        <el-input-number class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="mini" v-model="maxValue" :step="step" @change="$emit('update:max', maxValue)"/>
+        <div class="label">{{ maxLabel || 'Max' }}</div>
+        <el-input-number class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="small" v-model="maxValue" :step="step" @change="$emit('update:max', maxValue)"/>
       </el-col>
     </el-row>
   </div>

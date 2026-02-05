@@ -1,9 +1,10 @@
 <template>
   <div>
-    <b>{{label}}</b><br>
-    <el-select :disabled="disabled" size="small" v-model="data" @change="$emit('input', data);$emit('change', data);">
+    <b>{{ label }}</b><br>
+    <el-select :disabled="disabled" size="small" :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event); $emit('change', $event)">
       <el-option
         v-for="option in options"
+        :key="option.value"
         :value="option.value"
         :label="getLabel(option)"
       />
@@ -12,30 +13,18 @@
 </template>
 
 <script>
-  import * as _ from 'lodash';
-  export default {
-    name: "SelectValue",
-    props: ['value', 'label', 'options', 'disabled'],
-    mounted() {
-      this.data = this.value;
-    },
-    methods: {
-      getLabel(option) {
-          return option.name == null || option.name == '' ? _.startCase(option.value.replace('ease', '')) : option.name;
-      }
-    },
-    watch: {
-      value() {
-        this.data = this.value;
-      }
-    },
-    data() {
-      return {
-        data: ''
-      }
-    }
+import _ from 'lodash'
 
-  }
+export default {
+  name: 'SelectValue',
+  props: ['modelValue', 'label', 'options', 'disabled'],
+  emits: ['update:modelValue', 'change'],
+  methods: {
+    getLabel(option) {
+      return option.name == null || option.name === '' ? _.startCase(option.value.replace('ease', '')) : option.name
+    },
+  },
+}
 </script>
 
 <style scoped>

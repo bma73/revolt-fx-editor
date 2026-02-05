@@ -4,18 +4,18 @@
     <el-row type="flex" style="margin-top: -4px">
       <el-col>
         <div class="label">Min</div>
-        <angle-degree-value class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="mini" v-model="minValue" :step="step" @input="$emit('update:min', minValue)"/>
+        <angle-degree-value class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="small" v-model="minValue" :step="step" @input="$emit('update:min', minValue)"/>
       </el-col>
       <el-col>
         <div class="label">Max</div>
-        <angle-degree-value class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="mini" v-model="maxValue" :step="step" @input="$emit('update:max', maxValue)"/>
+        <angle-degree-value class="input" :min="lowerLimit" :max="upperLimit" controls-position="right" size="small" v-model="maxValue" :step="step" @input="$emit('update:max', maxValue)"/>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-  import AngleDegreeValue from "./AngleDegreeValue";
+  import AngleDegreeValue from "./AngleDegreeValue.vue";
   export default {
     name: "MinMaxNumberAngleDegreesValue",
     components: {AngleDegreeValue},

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-  import ValueGroup from "./values/ValueGroup";
-  import NumberValue from "./values/NumberValue";
+  import ValueGroup from "./values/ValueGroup.vue";
+  import NumberValue from "./values/NumberValue.vue";
   import {RevoltFX} from 'revolt-fx';
-  import Help from "./Help";
+  import Help from "./Help.vue";
 
   export default {
     name: "EngineValues",

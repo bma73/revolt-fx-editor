@@ -1,4 +1,5 @@
-import {ClickGizmo, Gizmos} from "./gizmos";
+import * as PIXI from 'pixi.js'
+import { ClickGizmo, Gizmos } from './gizmos.js'
 
 export class Layers extends PIXI.Container {
   constructor() {

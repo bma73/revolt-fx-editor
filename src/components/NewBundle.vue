@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="New Bundle" :visible.sync="visible" width="400px">
+    <el-dialog v-model="visible" title="New Bundle" width="400px">
       <el-input v-model="name" placeholder="Name"></el-input>
 
       <help text="Add a spritesheet PNG and JSON file">
@@ -10,11 +10,11 @@
         </div>
       </help>
 
-      <span slot="footer" class="dialog-footer">
+      <template #footer>
         <el-button @click="visible = false">Cancel</el-button>
         <el-button :disabled="!createOk" type="primary" @click="create">Create</el-button>
-      </span>
-      <img src="/static/foo.png" ref="preview" class="spritesheet-preview"/>
+      </template>
+      <img src="/foo.png" ref="preview" class="spritesheet-preview"/>
       <help text="Add only textures containing this string in their names as FX assets">
         <el-input v-model="spritesheetFilter" placeholder="Texture Filter" style="width:50%;" @change="checkFilter"></el-input>
       </help>
@@ -27,7 +27,7 @@
 
   import {INIT_BUNDLE} from "../store";
   import {EVENT_EMITTER_PRESET_SELECTED, EVENT_RESET} from "../events";
-  import Help from "./Help";
+  import Help from "./Help.vue";
 
 
   let jsonFile;

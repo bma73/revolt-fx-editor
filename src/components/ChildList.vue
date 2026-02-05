@@ -12,7 +12,7 @@
       @remove="onRemove"
     />
 
-    <el-dialog title="Select Component" :visible.sync="modalVisible" width="400px">
+    <el-dialog v-model="modalVisible" title="Select Component" width="400px">
       <p>
         Particle Emitter<br>
         <el-select v-model="emitterId">
@@ -43,13 +43,13 @@
         </p>
       </help>
 
-      <span slot="footer" class="dialog-footer">
+      <template #footer>
         <el-button type="primary" @click="modalVisible=false">Cancel</el-button>
         <el-button type="primary" :disabled="isDisabled" @click="ok">OK</el-button>
-      </span>
+      </template>
     </el-dialog>
 
-    <el-dialog title="Edit" :visible.sync="editModalVisible" width="400px">
+    <el-dialog v-model="editModalVisible" title="Edit" width="400px">
 
       <help text="Scale modificator">
         <p>
@@ -67,20 +67,19 @@
           <el-input v-model="containerId" placeholder="Container Id"></el-input>
         </p>
       </help>
-      <span slot="footer" class="dialog-footer">
+      <template #footer>
         <el-button type="primary" @click="editModalVisible=false">Cancel</el-button>
         <el-button type="primary" @click="applyChanges">OK</el-button>
-      </span>
+      </template>
     </el-dialog>
-
   </div>
 </template>
 
 <script>
-  import List from "./list/List";
-  import NumberValue from "./values/NumberValue";
-  import Help from "./Help";
-  import ValueElement from "./values/ValueElement";
+  import List from "./list/List.vue";
+  import NumberValue from "./values/NumberValue.vue";
+  import Help from "./Help.vue";
+  import ValueElement from "./values/ValueElement.vue";
   import * as _ from 'lodash';
 
   export default {

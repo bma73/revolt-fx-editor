@@ -28,12 +28,12 @@
 </template>
 
 <script>
-  import EmitterList from "./EmitterList";
-  import EmitterValues from "./EmitterValues";
+  import EmitterList from "./EmitterList.vue";
+  import EmitterValues from "./EmitterValues.vue";
   import {EVENT_EMITTER_PRESET_REMOVED, EVENT_EMITTER_PRESET_SELECTED, EVENT_RESET, EVENT_SEQUENCE_PRESET_SELECTED} from "../events";
-  import EngineValues from "./EngineValues";
-  import SequenceList from "./SequenceList";
-  import SequenceValues from "./SequenceValues";
+  import EngineValues from "./EngineValues.vue";
+  import SequenceList from "./SequenceList.vue";
+  import SequenceValues from "./SequenceValues.vue";
 
   export default {
     name: "SidePanel",
