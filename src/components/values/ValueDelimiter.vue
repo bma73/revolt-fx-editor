@@ -10,10 +10,9 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~element-ui/packages/theme-chalk/src/common/var";
 
   div {
-    border-bottom: 1px solid $--border-color-base;
+    border-bottom: 1px solid #dcdfe6;
     margin-top: 15px;
     margin-bottom: 15px;
     position: relative;

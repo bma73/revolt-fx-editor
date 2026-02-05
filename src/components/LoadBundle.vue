@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog title="Load Bundle" :visible.sync="visible" width="400px">
+    <el-dialog v-model="visible" title="Load Bundle" width="400px">
 
       <help text="Add a bundle preset JSON and spritesheet PNG and JSON file">
         <div v-if="!mode || mode=='files'" class="choose-file">
@@ -17,13 +17,13 @@
       </help>
 
       <div v-if="mode == 'files'" class="spritesheet-preview">
-        <img src="/static/foo.png" ref="preview"/>
+        <img src="/foo.png" ref="preview"/>
       </div>
 
-      <span slot="footer" class="dialog-footer">
+      <template #footer>
         <el-button @click="visible = false">Cancel</el-button>
         <el-button :disabled="!loadOk" type="primary" @click="load">Load</el-button>
-      </span>
+      </template>
 
     </el-dialog>
 
@@ -33,7 +33,7 @@
 <script>
 
   import {readAsText, readAsDataURL} from 'promise-file-reader';
-  import Help from "./Help";
+  import Help from "./Help.vue";
 
 
   let tempImage;

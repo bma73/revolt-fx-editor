@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import List from "./list/List";
+  import List from "./list/List.vue";
   import {ADD_EMITTER_PRESET, CLONE_EMITTER_PRESET, DELETE_EMITTER_PRESET, RENAME_EMITTER_PRESET} from "../store";
   import {EVENT_EMITTER_PRESET_REMOVED, EVENT_EMITTER_PRESET_SELECTED} from "../events";
   import * as _ from 'lodash';

@@ -9,7 +9,7 @@
 
 
   import * as PIXI from 'pixi.js';
-  import CanvasOptions from "./CanvasOptions";
+  import CanvasOptions from "./CanvasOptions.vue";
 
 
   export default {

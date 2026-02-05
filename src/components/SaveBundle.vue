@@ -1,38 +1,28 @@
 <template>
   <div>
-    <el-dialog title="Save Bundle" :visible.sync="visible" width="400px">
+    <el-dialog v-model="visible" title="Save Bundle" width="400px">
       <el-input v-model="name" placeholder="Name"></el-input>
-      <!--<p>-->
-        <!--<el-checkbox v-model="includeSpritesheet">Include Spritesheet</el-checkbox>-->
-      <!--</p>-->
-
-      <span slot="footer" class="dialog-footer">
+      <template #footer>
         <el-button @click="visible = false">Cancel</el-button>
         <el-button :disabled="name == ''" type="primary" @click="save">Save</el-button>
-      </span>
-
+      </template>
     </el-dialog>
 
   </div>
 </template>
 
 <script>
+import { ElMessage } from 'element-plus'
 
-
-
-  let tempImage;
-  let tempDef;
-  export default {
+export default {
     name: "SaveBundle",
     props: [],
     methods: {
 
       show() {
-        this.visible = true;
-        this.name = this.$store.state.bundle.name;
-        tempImage = null;
-        tempDef = null;
-        if (this.$refs.preview) this.$refs.preview.src = '/static/foo.png';
+        this.visible = true
+        this.name = this.$store.state.bundle.name
+        if (this.$refs.preview) this.$refs.preview.src = '/foo.png'
       },
 
       save() {
@@ -41,10 +31,7 @@
       },
 
       showAlert(message) {
-        this.$notify.error({
-          title: 'Error',
-          message: message
-        });
+        ElMessage.error(message)
       }
     },
 

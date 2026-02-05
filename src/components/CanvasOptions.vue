@@ -4,35 +4,34 @@
 
     <el-popover
       placement="top"
-      width="320"
-      v-model="popupContainerVisible"
+      :width="320"
+      v-model:visible="popupContainerVisible"
       @show="onShowPopupContainer"
     >
-
       <p>
-        <el-radio-group size="mini" class="spacing" v-model="tempContainer">
-          <el-radio-button :label="0">Standard Container</el-radio-button>
-          <el-radio-button :label="1">Particle Container</el-radio-button>
+        <el-radio-group size="small" class="spacing" v-model="tempContainer">
+          <el-radio-button :value="0">Standard Container</el-radio-button>
+          <el-radio-button :value="1">Particle Container</el-radio-button>
         </el-radio-group>
       </p>
       <select-value :disabled="tempContainer==0" label="Blend Mode" v-model="tempBlendMode" :options="blendModes" self="left"/>
       <div style="text-align: right;">
-        <el-button size="mini" type="primary" @click="onApplyContainer">Apply</el-button>
+        <el-button size="small" type="primary" @click="onApplyContainer">Apply</el-button>
       </div>
-
-      <el-button slot="reference" type="info" size="mini" class="spacing">Container</el-button>
+      <template #reference>
+        <el-button type="info" size="small" class="spacing">Container</el-button>
+      </template>
     </el-popover>
 
-
-    <el-color-picker size="mini" v-model="color" @change="onColor" class="spacing"/>
+    <el-color-picker size="small" v-model="color" @change="onColor" class="spacing"/>
     <el-checkbox class="spacing" v-model="gizmos" @change="onGizmo">Gizmos</el-checkbox>
-    <el-button size="mini" type="info" self="right" style="margin-right:10px" @click="onReset()">Clear</el-button>
+    <el-button size="small" type="info" self="right" style="margin-right:10px" @click="onReset()">Clear</el-button>
 
   </div>
 </template>
 
 <script>
-  import SelectValue from "./values/SelectValue";
+  import SelectValue from "./values/SelectValue.vue";
 
   import {EVENT_SEQUENCE_PRESET_SELECTED, EVENT_EMITTER_PRESET_SELECTED} from "../events";
   export default {

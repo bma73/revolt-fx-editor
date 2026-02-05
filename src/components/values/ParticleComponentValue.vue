@@ -3,25 +3,26 @@
   <div>
     <value-element label="Component">
       <div v-if="type==0">
-        <better-image-select v-model="spriteValue" :textures="$editor.spritesheetImagesMap" @input="onSelect"/>
+        <better-image-select v-model="spriteValue" :textures="$editor.spritesheetImagesMap" @update:modelValue="onSelect"/>
       </div>
       <div v-if="type==1">
-        <better-image-select v-model="movieClipValue" :textures="$editor.moveClipImagesMap" @input="onSelect"/>
+        <better-image-select v-model="movieClipValue" :textures="$editor.moveClipImagesMap" @update:modelValue="onSelect"/>
       </div>
     </value-element>
   </div>
 </template>
 
 <script>
-  import BetterImageSelect from "../imageselect/BetterImageSelect";
-  import ValueElement from "./ValueElement";
+  import BetterImageSelect from "../imageselect/BetterImageSelect.vue";
+  import ValueElement from "./ValueElement.vue";
 
   export default {
     name: "ParticleComponentValue",
     components: {ValueElement, BetterImageSelect},
-    props: ['value', 'type'],
+    props: ['modelValue', 'type'],
+    emits: ['update:modelValue'],
     mounted() {
-      this.setRightValue(this.type, this.value);
+      this.setRightValue(this.type, this.modelValue);
     },
     computed: {},
     data() {
@@ -32,12 +33,12 @@
     },
     watch: {
       'type': {
-        handler(newVal, oldVal) {
-          this.setRightValue(newVal, this.value);
+        handler(newVal) {
+          this.setRightValue(newVal, this.modelValue);
         }
       },
-      'value': {
-        handler(newVal, oldVal) {
+      'modelValue': {
+        handler(newVal) {
           this.setRightValue(this.type, newVal);
         }
       }
@@ -47,19 +48,19 @@
       setRightValue(type, value) {
         switch (type) {
           case 0:
-            if (this.$editor.spritesheetImagesMap[this.value] == null) {
+            if (this.$editor.spritesheetImagesMap[value] == null) {
               this.spriteValue = this.$editor.defaultSprite.name;
-              this.$emit('input', this.spriteValue);
+              this.$emit('update:modelValue', this.spriteValue);
             } else {
-              this.spriteValue = this.value;
+              this.spriteValue = value;
             }
             break;
           case 1:
-            if (this.$editor.moveClipImagesMap[this.value] == null) {
+            if (this.$editor.moveClipImagesMap[value] == null) {
               this.movieClipValue = this.$editor.defaultMovieClip.name;
-              this.$emit('input', this.movieClipValue);
+              this.$emit('update:modelValue', this.movieClipValue);
             } else {
-              this.movieClipValue = this.value;
+              this.movieClipValue = value;
             }
             break;
         }
@@ -74,7 +75,7 @@
             value = this.movieClipValue;
             break;
         }
-        this.$emit('input', value);
+        this.$emit('update:modelValue', value);
       }
     }
   }

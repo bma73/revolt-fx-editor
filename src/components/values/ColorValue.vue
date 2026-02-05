@@ -1,44 +1,30 @@
 <template>
   <div>
-    <b>{{label}}<br></b>
-    <el-color-picker v-model="data" @change="$emit('input', int)"/>
+    <b>{{ label }}<br></b>
+    <el-color-picker :model-value="colorStr" @update:model-value="onChange"/>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "ColorValue",
-    props: ['value', 'label', 'disabled'],
-    mounted() {
-      this.data = '#' + this.value.toString(16);
+export default {
+  name: 'ColorValue',
+  props: ['modelValue', 'label', 'disabled'],
+  emits: ['update:modelValue'],
+  computed: {
+    colorStr() {
+      const v = this.modelValue
+      return v != null ? '#' + (typeof v === 'number' ? v : parseInt(v, 16)).toString(16).padStart(6, '0') : '#ffffff'
     },
-    computed: {
-      int() {
-        if (this.data == null) {
-          this.data = '#ffffff';
-        }
-        return parseInt(this.data.replace('#', ''), 16);
-      }
+  },
+  methods: {
+    onChange(val) {
+      this.$emit('update:modelValue', val ? parseInt(val.replace('#', ''), 16) : 0xffffff)
     },
-    watch: {
-      value() {
-        this.data = '#' + this.value.toString(16);
-      }
-    },
-    data() {
-      return {
-        data: '#ff00ff'
-      }
-    }
-  }
+  },
+}
 </script>
 
 <style scoped>
-  div {
-    margin-bottom: 5px;
-  }
-
-  b {
-    font-size: 14px;
-  }
+div { margin-bottom: 5px; }
+b { font-size: 14px; }
 </style>

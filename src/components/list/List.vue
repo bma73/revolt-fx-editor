@@ -15,16 +15,16 @@
     </div>
     <div layout="row top-left">
       <el-button-group>
-        <el-button type="primary" size="mini" @click="onAdd">Add</el-button>
-        <el-button :disabled="selectedElement == null" v-if="cloneButton" type="primary" size="mini" @click="onClone">Clone</el-button>
-        <el-button :disabled="selectedElement == null" v-if="renameButton" type="primary" size="mini" @click="onRename">Rename</el-button>
+        <el-button type="primary" size="small" @click="onAdd">Add</el-button>
+        <el-button :disabled="selectedElement == null" v-if="cloneButton" type="primary" size="small" @click="onClone">Clone</el-button>
+        <el-button :disabled="selectedElement == null" v-if="renameButton" type="primary" size="small" @click="onRename">Rename</el-button>
       </el-button-group>
     </div>
   </div>
 </template>
 
 <script>
-  import ListEntry from "./ListEntry";
+  import ListEntry from "./ListEntry.vue";
   import {EVENT_RESET} from "../../events";
 
   export default {
@@ -154,7 +154,6 @@
 
 <style lang="scss" scoped>
 
-  @import "~element-ui/packages/theme-chalk/src/common/var";
 
   .container {
     height: calc(100% - 215px);
@@ -162,8 +161,8 @@
     overflow-y: scroll;
     overflow-x: hidden;
     margin-bottom: 5px;
-    border: $--border-base;
-    border-radius: $--border-radius-base;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
   }
 
 

@@ -28,16 +28,15 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~element-ui/packages/theme-chalk/src/common/var";
 
   .thumb {
     position: relative;
     padding: 2px;
     margin: 0;
     cursor: pointer;
-    background-color: mix($--color-primary, white, 30);
+    background-color: #409eff;
     margin: 1px;
-    border-radius: $--border-radius-base;
+    border-radius: 4px;
     overflow: hidden;
   }
 

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import List from "./list/List";
+  import List from "./list/List.vue";
   import {EVENT_SEQUENCE_PRESET_REMOVED, EVENT_SEQUENCE_PRESET_SELECTED} from "../events";
   import {ADD_SEQUENCE_PRESET, CLONE_SEQUENCE_PRESET, DELETE_SEQUENCE_PRESET, RENAME_SEQUENCE_PRESET} from "../store";
   import * as _ from 'lodash';
